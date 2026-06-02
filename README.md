@@ -7,3 +7,4 @@ This project creates a hiking trail map where:
 -Locations are nodes
 -Paths are edges
 -The program finds the shortest route between two points using BFS (Breadth First Search)
+-Current version uses BFS and finds the shortest route based on trail connections.
