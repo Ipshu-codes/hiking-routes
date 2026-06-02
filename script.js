@@ -1,9 +1,10 @@
 const graph = {
     Sundarijal: ["Mulkharka"],
-    Mulkharka: ["Sundarijal", "Manichud"],
-    Manichud: ["Mulkharka"]
+    Mulkharka: ["Sundarijal", "Manichud", "Chisapani"],
+    Manichud: ["Mulkharka"],
+    Chisapani: ["Mulkharka", "Nagarkot"],
+    Nagarkot: ["Chisapani"]
 };
-
 function bfs(start, end) {
     let queue = [[start]];
     let visited = new Set();
