@@ -3,7 +3,9 @@ const graph = {
     Mulkharka: ["Sundarijal", "Manichud", "Chisapani"],
     Manichud: ["Mulkharka"],
     Chisapani: ["Mulkharka", "Nagarkot"],
-    Nagarkot: ["Chisapani"]
+    Nagarkot: ["Chisapani", "Dhulikhel"],
+    Dhulikhel: ["Nagarkot", "Dhap Dam"],
+    "Dhap Dam": ["Dhulikhel"]
 };
 function bfs(start, end) {
     let queue = [[start]];
@@ -32,6 +34,11 @@ function bfs(start, end) {
 function findRoute() {
     let start = document.getElementById("start").value;
     let end = document.getElementById("end").value;
+    if (start === end) {
+    document.getElementById("result").innerText =
+        "Please choose different locations.";
+    return;
+}
 
     let route = bfs(start, end);
 
