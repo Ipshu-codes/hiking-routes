@@ -1,34 +1,92 @@
 const graph = {
-    Sundarijal: ["Mulkharka"],
-    Mulkharka: ["Sundarijal", "Manichud", "Chisapani"],
-    Manichud: ["Mulkharka"],
-    Chisapani: ["Mulkharka", "Nagarkot"],
-    Nagarkot: ["Chisapani", "Dhulikhel"],
-    Dhulikhel: ["Nagarkot", "Dhap Dam"],
-    "Dhap Dam": ["Dhulikhel"]
+    Sundarijal: {
+        Mulkharka: 5
+    },
+
+    Mulkharka: {
+        Sundarijal: 5,
+        Manichud: 4,
+        Chisapani: 6
+    },
+
+    Manichud: {
+        Mulkharka: 4
+    },
+
+    Chisapani: {
+        Mulkharka: 6,
+        Nagarkot: 7
+    },
+
+    Nagarkot: {
+        Chisapani: 7,
+        Dhulikhel: 8
+    },
+
+    Dhulikhel: {
+        Nagarkot: 8,
+        "Dhap Dam": 10
+    },
+
+    "Dhap Dam": {
+        Dhulikhel: 10
+    }
 };
-function bfs(start, end) {
-    let queue = [[start]];
-    let visited = new Set();
+function dijkstra(start, end) {
+    const distances = {};
+    const previous = {};
+    const unvisited = new Set();
 
-    while (queue.length > 0) {
-        let path = queue.shift();
-        let node = path[path.length - 1];
+    for (let node in graph) {
+        distances[node] = Infinity;
+        previous[node] = null;
+        unvisited.add(node);
+    }
 
-        if (node === end) {
-            return path;
+    distances[start] = 0;
+
+    while (unvisited.size > 0) {
+
+        let current = null;
+
+        for (let node of unvisited) {
+            if (
+                current === null ||
+                distances[node] < distances[current]
+            ) {
+                current = node;
+            }
         }
 
-        if (!visited.has(node)) {
-            visited.add(node);
+        if (current === end) break;
 
-            for (let neighbor of (graph[node] || [])) {
-                queue.push([...path, neighbor]);
+        unvisited.delete(current);
+
+        for (let neighbor in graph[current]) {
+
+            let newDistance =
+                distances[current] +
+                graph[current][neighbor];
+
+            if (newDistance < distances[neighbor]) {
+                distances[neighbor] = newDistance;
+                previous[neighbor] = current;
             }
         }
     }
 
-    return null;
+    const path = [];
+    let current = end;
+
+    while (current !== null) {
+        path.unshift(current);
+        current = previous[current];
+    }
+
+    return {
+        path,
+        distance: distances[end]
+    };
 }
 
 function findRoute() {
@@ -40,10 +98,11 @@ function findRoute() {
     return;
 }
 
-    let route = bfs(start, end);
+    let result = dijkstra(start, end);
 
     document.getElementById("result").innerText =
-        route
-            ? route.join(" → ")
-            : "Route not found";
+    `Shortest Route:
+${result.path.join(" → ")}
+
+Total Distance: ${result.distance} km`;
 }
