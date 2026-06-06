@@ -1,6 +1,7 @@
 const graph = {
     Sundarijal: {
-        Mulkharka: 5
+        Mulkharka: 5,
+        "Shivapuri Peak": 8
     },
 
     Mulkharka: {
@@ -30,8 +31,34 @@ const graph = {
 
     "Dhap Dam": {
         Dhulikhel: 10
-    }
+    },
+
+   "Shivapuri Peak": {
+    Sundarijal: 8,
+    "Nagi Gumba": 3,
+    Jamacho: 12
+},
+
+    "Nagi Gumba": {
+        "Shivapuri Peak": 3
+    },
+    Jamacho: {
+    "Shivapuri Peak": 12,
+    Champadevi: 10
+    },
+
+Champadevi: {
+    Jamacho: 10,
+    Phulchoki: 15
+},
+
+Phulchoki: {
+    Champadevi: 15
+}
 };
+
+
+
 function dijkstra(start, end) {
     const distances = {};
     const previous = {};
@@ -95,14 +122,17 @@ function findRoute() {
     if (start === end) {
     document.getElementById("result").innerText =
         "Please choose different locations.";
+        
     return;
 }
 
     let result = dijkstra(start, end);
 
-    document.getElementById("result").innerText =
-    `Shortest Route:
+document.getElementById("result").innerText =
+`🏔 Route Found
+
+Shortest Route:
 ${result.path.join(" → ")}
 
-Total Distance: ${result.distance} km`;
-}
+Total Distance: ${result.distance} km
+Locations Visited: ${result.path.length}`;
