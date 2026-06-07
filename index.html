@@ -1,9 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kathmandu Hiking Route Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* fallback in case you didn't separate CSS */
+    </style>
+</head>
+
 <body>
-    <h1>🏔 Hiking Route Finder</h1>
+
+<div class="container">
+
+    <h1>🏔 Kathmandu Hiking Route Finder</h1>
+    <p>Find the shortest hiking route using Dijkstra's Algorithm</p>
 
     <label for="start">Start Location</label>
-    <br>
-
     <select id="start">
         <option>Sundarijal</option>
         <option>Mulkharka</option>
@@ -19,11 +34,7 @@
         <option>Phulchoki</option>
     </select>
 
-    <br><br>
-
     <label for="end">Destination</label>
-    <br>
-
     <select id="end">
         <option>Sundarijal</option>
         <option>Mulkharka</option>
@@ -39,11 +50,13 @@
         <option>Phulchoki</option>
     </select>
 
-    <br><br>
-
     <button onclick="findRoute()">Find Route</button>
 
     <h2 id="result"></h2>
 
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
+
 </body>
+</html>

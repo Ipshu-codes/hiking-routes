@@ -128,11 +128,12 @@ function findRoute() {
 
     let result = dijkstra(start, end);
 
-document.getElementById("result").innerText =
-`🏔 Route Found
+   alert("Button clicked!");
 
-Shortest Route:
+document.getElementById("result").innerText =
+    `Shortest Route:
 ${result.path.join(" → ")}
 
-Total Distance: ${result.distance} km
-Locations Visited: ${result.path.length}`;
+Total Distance: ${result.distance} km`;
+
+}
