@@ -121,14 +121,14 @@ function findRoute() {
     let end = document.getElementById("end").value;
     if (start === end) {
     document.getElementById("result").innerText =
-        "Please choose different locations.";
+        "Select from the above locations";
         
     return;
 }
 
     let result = dijkstra(start, end);
 
-   alert("Button clicked!");
+   alert("Is this your destination ?");
 
 document.getElementById("result").innerText =
     `Shortest Route:
