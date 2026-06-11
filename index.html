@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <title>Kathmandu Hiking Route Finder</title>
 
-    <link rel="stylesheet" href="style.css">
+ <div>
+       <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+ </div>
 
     <style>
-        /* fallback in case you didn't separate CSS */
+       
     </style>
 </head>
 
 <body>
 
 <div class="container">
+    <div id="map"></div>
 
     <h1>🏔 Kathmandu Hiking Route Finder</h1>
     <p>Welcome to your hiking guide!!</p>
@@ -55,6 +60,7 @@
     <button onclick="findRoute()">Find Route</button>
 
     <h2 id="result"></h2>
+    
 
 </div>
 

@@ -1,3 +1,14 @@
+let map;
+
+window.onload = function () {
+
+    map = L.map('map').setView([27.7172, 85.3240], 11);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+};
 const graph = {
     Sundarijal: {
         Mulkharka: 5,
@@ -137,3 +148,5 @@ ${result.path.join(" → ")}
 Total Distance: ${result.distance} km`;
 
 }
+
+
