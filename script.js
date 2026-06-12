@@ -1,3 +1,18 @@
+
+const locations = {
+    Sundarijal: [27.7810, 85.4210],
+    Mulkharka: [27.8000, 85.4100],
+    Manichud: [27.8150, 85.3950],
+    Chisapani: [27.8390, 85.4130],
+    Nagarkot: [27.7150, 85.5200],
+    Dhulikhel: [27.6220, 85.5420],
+    "Dhap Dam": [27.8100, 85.3900],
+    "Shivapuri Peak": [27.8170, 85.4100],
+    "Nagi Gumba": [27.8250, 85.4000],
+    Jamacho: [27.7420, 85.2700],
+    Champadevi: [27.6580, 85.3000],
+    Phulchoki: [27.5760, 85.4060]
+};
 let map;
 
 window.onload = function () {
@@ -7,6 +22,13 @@ window.onload = function () {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap'
     }).addTo(map);
+
+    // Add markers for all hiking locations
+    for (let place in locations) {
+        L.marker(locations[place])
+            .addTo(map)
+            .bindPopup(place);
+    }
 
 };
 const graph = {

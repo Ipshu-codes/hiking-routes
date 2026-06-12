@@ -10,7 +10,7 @@ body {
     background-repeat: no-repeat;
 }
 
-/* MAIN UI BOX */
+
 .container {
     background: rgba(255, 255, 255, 0.92);
     width: 500px;
@@ -20,12 +20,11 @@ body {
     box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
-/* HEADING */
+
 h1 {
     margin-bottom: 20px;
 }
 
-/* LABELS */
 label {
     display: block;
     margin-top: 12px;
@@ -33,7 +32,7 @@ label {
     font-weight: bold;
 }
 
-/* INPUTS */
+
 select,
 button {
     width: 100%;
@@ -44,7 +43,7 @@ button {
     box-sizing: border-box;
 }
 
-/* BUTTON */
+
 button {
     border: none;
     cursor: pointer;
@@ -57,7 +56,7 @@ button:hover {
     transform: scale(1.03);
 }
 
-/* RESULT BOX */
+
 #result {
     margin-top: 15px;
     padding: 12px;
@@ -67,7 +66,7 @@ button:hover {
     font-size: 16px;
 }
 
-/* MAP */
+
 #map {
     width: 90%;
     height: 450px;
