@@ -31,6 +31,7 @@ window.onload = function () {
     }
 
 };
+let routeLine;
 const graph = {
     Sundarijal: {
         Mulkharka: 5,
@@ -168,7 +169,22 @@ document.getElementById("result").innerText =
 ${result.path.join(" → ")}
 
 Total Distance: ${result.distance} km`;
+// remove old route if exists
+if (routeLine) {
+    map.removeLayer(routeLine);
+}
 
+
+let routeCoords = result.path.map(place => locations[place]);
+
+// draw new route
+routeLine = L.polyline(routeCoords, {
+    color: 'blue',
+    weight: 5
+}).addTo(map);
+
+
+map.fitBounds(routeLine.getBounds());
 }
 
 
