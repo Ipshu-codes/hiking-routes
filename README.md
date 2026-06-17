@@ -2,6 +2,9 @@
 
 A web-based hiking route finder for popular hiking destinations in Kathmandu Valley. The application uses Dijkstra's Algorithm to calculate the shortest route between hiking locations and visualizes destinations on an interactive Leaflet map.
 
+# Demo
+https://ipshu-codes.github.io/hiking-routes/ 
+
 ## Features
 
 - Find the shortest hiking route between locations
