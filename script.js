@@ -151,40 +151,59 @@ function dijkstra(start, end) {
 }
 
 function findRoute() {
+
     let start = document.getElementById("start").value;
     let end = document.getElementById("end").value;
+
     if (start === end) {
-    document.getElementById("result").innerText =
-        "Select from the above locations";
-        
-    return;
-}
+        document.getElementById("result").innerText =
+            "Select different start and destination locations.";
+        return;
+    }
 
     let result = dijkstra(start, end);
 
-   alert("Is this your destination ?");
+    const estimatedHours = (result.distance / 3).toFixed(1);
 
-document.getElementById("result").innerText =
-    `Shortest Route:
+    let difficulty;
+
+    if (result.distance <= 10) {
+        difficulty = "Easy";
+    } else if (result.distance <= 20) {
+        difficulty = "Moderate";
+    } else {
+        difficulty = "Hard";
+    }
+
+    document.getElementById("result").innerText =
+`🥾 Route Summary
+
+Start: ${start}
+Destination: ${end}
+
+Route:
 ${result.path.join(" → ")}
 
-Total Distance: ${result.distance} km`;
-// remove old route if exists
-if (routeLine) {
-    map.removeLayer(routeLine);
-}
+Distance: ${result.distance} km
+Estimated Hiking Time: ${estimatedHours} hours
+Difficulty: ${difficulty}`;
 
+    // Remove old route
+    if (routeLine) {
+        map.removeLayer(routeLine);
+    }
 
-let routeCoords = result.path.map(place => locations[place]);
+    // Convert route locations to coordinates
+    let routeCoords = result.path.map(place => locations[place]);
 
-// draw new route
-routeLine = L.polyline(routeCoords, {
-    color: 'blue',
-    weight: 5
-}).addTo(map);
+    // Draw route
+    routeLine = L.polyline(routeCoords, {
+        color: "blue",
+        weight: 5
+    }).addTo(map);
 
-
-map.fitBounds(routeLine.getBounds());
+    // Zoom map to route
+    map.fitBounds(routeLine.getBounds());
 }
 
 
