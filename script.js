@@ -1,4 +1,24 @@
 
+const trailInfo = {
+    Chisapani: {
+        elevation: "2165 m",
+        season: "Spring, Autumn",
+        highlight: "Mountain sunrise views"
+    },
+
+    Nagarkot: {
+        elevation: "2175 m",
+        season: "All year",
+        highlight: "Himalayan panorama"
+    },
+
+    Phulchoki: {
+        elevation: "2782 m",
+        season: "Spring",
+        highlight: "Rhododendron forests"
+    }
+};
+
 const locations = {
     Sundarijal: [27.7810, 85.4210],
     Mulkharka: [27.8000, 85.4100],
@@ -204,6 +224,17 @@ Difficulty: ${difficulty}`;
 
     // Zoom map to route
     map.fitBounds(routeLine.getBounds());
+
+    if (trailInfo[end]) {
+    document.getElementById("result").innerText +=
+
+`\n\n📍 Destination Info
+
+Elevation: ${trailInfo[end].elevation}
+Best Season: ${trailInfo[end].season}
+Highlight: ${trailInfo[end].highlight}`;
+}
+    
 }
 
 
