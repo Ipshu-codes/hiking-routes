@@ -45,25 +45,23 @@ button {
 
 
 button {
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    background: #2d6cdf;
-    color: white;
+    transition: 0.2s ease;
 }
 
 button:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
+    background-color: #ddd;
 }
 
 
 #result {
-    margin-top: 15px;
-    padding: 12px;
-    border-radius: 10px;
-    background: #f4f4f4;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: white;
+    text-align: left;
     white-space: pre-line;
-    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 
