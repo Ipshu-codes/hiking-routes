@@ -286,10 +286,20 @@ startMarker = L.marker(locations[start])
 endMarker = L.marker(locations[end])
     .addTo(map)
     .bindPopup("🔴 Destination: " + end);
-    routeLine = L.polyline(routeCoords, {
-        color: "blue",
-        weight: 5
-    }).addTo(map);
+    let routeColor;
+
+if (difficulty === "Easy") {
+    routeColor = "green";
+} else if (difficulty === "Moderate") {
+    routeColor = "orange";
+} else {
+    routeColor = "red";
+}
+
+routeLine = L.polyline(routeCoords, {
+    color: routeColor,
+    weight: 5
+}).addTo(map);
 
     // Zoom map to route
     map.fitBounds(routeLine.getBounds());
