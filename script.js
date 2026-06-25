@@ -104,6 +104,8 @@ window.onload = function () {
 
 };
 let routeLine;
+let startMarker;
+let endMarker;
 const graph = {
     Sundarijal: {
         Mulkharka: 5,
@@ -260,15 +262,30 @@ Distance: ${result.distance} km
 Estimated Hiking Time: ${estimatedHours} hours
 Difficulty: ${difficulty}`;
 
-    // Remove old route
     if (routeLine) {
         map.removeLayer(routeLine);
     }
 
-    // Convert route locations to coordinates
+if (startMarker) {
+    map.removeLayer(startMarker);
+}
+
+if (endMarker) {
+    map.removeLayer(endMarker);
+}
+    
+
     let routeCoords = result.path.map(place => locations[place]);
 
-    // Draw route
+    
+startMarker = L.marker(locations[start])
+    .addTo(map)
+    .bindPopup("🟢 Start: " + start)
+    .openPopup();
+
+endMarker = L.marker(locations[end])
+    .addTo(map)
+    .bindPopup("🔴 Destination: " + end);
     routeLine = L.polyline(routeCoords, {
         color: "blue",
         weight: 5
