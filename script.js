@@ -262,58 +262,62 @@ Distance: ${result.distance} km
 Estimated Hiking Time: ${estimatedHours} hours
 Difficulty: ${difficulty}`;
 
+    // Remove previous route
     if (routeLine) {
         map.removeLayer(routeLine);
     }
 
-if (startMarker) {
-    map.removeLayer(startMarker);
-}
+    // Remove previous markers
+    if (startMarker) {
+        map.removeLayer(startMarker);
+    }
 
-if (endMarker) {
-    map.removeLayer(endMarker);
-}
-    
+    if (endMarker) {
+        map.removeLayer(endMarker);
+    }
 
+    // Convert route to coordinates
     let routeCoords = result.path.map(place => locations[place]);
 
-    
-startMarker = L.marker(locations[start])
-    .addTo(map)
-    .bindPopup("🟢 Start: " + start)
-    .openPopup();
+    // Add start marker
+    startMarker = L.marker(locations[start])
+        .addTo(map)
+        .bindPopup("🟢 Start: " + start)
+        .openPopup();
 
-endMarker = L.marker(locations[end])
-    .addTo(map)
-    .bindPopup("🔴 Destination: " + end);
+    // Add destination marker
+    endMarker = L.marker(locations[end])
+        .addTo(map)
+        .bindPopup("🔴 Destination: " + end);
+
+    // Decide route color
     let routeColor;
 
-if (difficulty === "Easy") {
-    routeColor = "green";
-} else if (difficulty === "Moderate") {
-    routeColor = "orange";
-} else {
-    routeColor = "red";
-}
+    if (difficulty === "Easy") {
+        routeColor = "green";
+    } else if (difficulty === "Moderate") {
+        routeColor = "orange";
+    } else {
+        routeColor = "red";
+    }
 
-routeLine = L.polyline(routeCoords, {
-    color: routeColor,
-    weight: 5
-}).addTo(map);
+    // Draw colored route
+    routeLine = L.polyline(routeCoords, {
+        color: routeColor,
+        weight: 5
+    }).addTo(map);
 
-    // Zoom map to route
+    // Zoom to fit route
     map.fitBounds(routeLine.getBounds());
 
+    // Show destination information
     if (trailInfo[end]) {
-    document.getElementById("result").innerText +=
+        document.getElementById("result").innerText +=
 
 `\n\n📍 Destination Info
 
 Elevation: ${trailInfo[end].elevation}
 Best Season: ${trailInfo[end].season}
 Highlight: ${trailInfo[end].highlight}`;
+    }
 }
-    
-}
-
-
