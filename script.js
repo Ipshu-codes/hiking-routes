@@ -321,3 +321,24 @@ Best Season: ${trailInfo[end].season}
 Highlight: ${trailInfo[end].highlight}`;
     }
 }
+function resetMap() {
+
+    if (routeLine) {
+        map.removeLayer(routeLine);
+        routeLine = null;
+    }
+
+    if (startMarker) {
+        map.removeLayer(startMarker);
+        startMarker = null;
+    }
+
+    if (endMarker) {
+        map.removeLayer(endMarker);
+        endMarker = null;
+    }
+
+    document.getElementById("result").innerText = "";
+
+    map.setView([27.7172, 85.3240], 11);
+}
