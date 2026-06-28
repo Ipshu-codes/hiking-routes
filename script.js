@@ -249,18 +249,38 @@ function findRoute() {
         difficulty = "Hard";
     }
 
-    document.getElementById("result").innerText =
-`🥾 Route Summary
+  document.getElementById("result").innerHTML =
+`
+<h2>🥾 Route Summary</h2>
 
-Start: ${start}
-Destination: ${end}
+<p><strong>📍 Start:</strong> ${start}</p>
 
-Route:
-${result.path.join(" → ")}
+<p><strong>🎯 Destination:</strong> ${end}</p>
 
-Distance: ${result.distance} km
-Estimated Hiking Time: ${estimatedHours} hours
-Difficulty: ${difficulty}`;
+<div class="stats">
+
+    <div class="stat">
+        Total distance =<br>
+        ${result.distance} km
+    </div>
+
+    <div class="stat">
+        Estimated time=<br>
+        ${estimatedHours} hrs
+    </div>
+
+    <div class="stat">
+        Difficulty level =<br>
+        ${difficulty}
+    </div>
+
+</div>
+
+<div class="route">
+    <strong>Route:</strong><br>
+    ${result.path.join(" → ")}
+</div>
+`;
 
     // Remove previous route
     if (routeLine) {
@@ -312,7 +332,7 @@ Difficulty: ${difficulty}`;
 
     // Show destination information
     if (trailInfo[end]) {
-        document.getElementById("result").innerText +=
+       document.getElementById("result").innerHTML +=
 
 `\n\n📍 Destination Info
 
