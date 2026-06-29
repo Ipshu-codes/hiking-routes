@@ -141,3 +141,9 @@ button:hover {
     padding-top:15px;
     border-top:1px solid #ddd;
 }
+.weather-card{
+    margin-top:20px;
+    padding:15px;
+    background:#e9f7ff;
+    border-radius:12px;
+}
