@@ -85,20 +85,6 @@ const locations = {
     Champadevi: [27.6580, 85.3000],
     Phulchoki: [27.5760, 85.4060]
 };
-const weatherCoordinates = {
-    Sundarijal: { lat: 27.7810, lon: 85.4210 },
-    Mulkharka: { lat: 27.8000, lon: 85.4100 },
-    Manichud: { lat: 27.8150, lon: 85.3950 },
-    Chisapani: { lat: 27.8390, lon: 85.4130 },
-    Nagarkot: { lat: 27.7150, lon: 85.5200 },
-    Dhulikhel: { lat: 27.6220, lon: 85.5420 },
-    "Dhap Dam": { lat: 27.8100, lon: 85.3900 },
-    "Shivapuri Peak": { lat: 27.8170, lon: 85.4100 },
-    "Nagi Gumba": { lat: 27.8250, lon: 85.4000 },
-    Jamacho: { lat: 27.7420, lon: 85.2700 },
-    Champadevi: { lat: 27.6580, lon: 85.3000 },
-    Phulchoki: { lat: 27.5760, lon: 85.4060 }
-};
 let map;
 
 window.onload = function () {
@@ -237,18 +223,7 @@ function dijkstra(start, end) {
         distance: distances[end]
     };
 }
-async function getWeather(place) {
 
-    const coord = weatherCoordinates[place];
-
-    const url =
-`https://api.open-meteo.com/v1/forecast?latitude=${coord.lat}&longitude=${coord.lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-
-    return data.current;
-}
 async function findRoute() {
 
     let start = document.getElementById("start").value;
@@ -357,20 +332,7 @@ async function findRoute() {
 
     // Show destination information
     if (trailInfo[end]) {
-        const weather = await getWeather(end);
-
-document.getElementById("result").innerHTML += `
-<div class="info">
-<h3>🌤 Current Weather</h3>
-
-<p>🌡 Temperature: ${weather.temperature_2m} °C</p>
-
-<p>💧 Humidity: ${weather.relative_humidity_2m}%</p>
-
-<p>💨 Wind Speed: ${weather.wind_speed_10m} km/h</p>
-
-</div>
-`;
+    
        document.getElementById("result").innerHTML +=
 
 `\n\n📍 Destination Info
