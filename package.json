@@ -1,0 +1,26 @@
+{
+  "name": "hiking-routes",
+  "version": "1.0.0",
+  "description": "A web-based hiking route finder for popular hiking destinations in Kathmandu Valley. The application uses Dijkstra's Algorithm to calculate the shortest route between hiking locations and visualizes destinations on an interactive Leaflet map.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ipshu-codes/hiking-routes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Ipshu-codes/hiking-routes/issues"
+  },
+  "homepage": "https://github.com/Ipshu-codes/hiking-routes#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
