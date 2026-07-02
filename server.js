@@ -3,20 +3,16 @@ const path = require("path");
 
 const app = express();
 
+// Serve all static files (HTML, CSS, JS, images)
 app.use(express.static(__dirname));
 
+// Homepage
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// First API endpoint
-app.get("/api/hello", (req, res) => {
-    res.json({
-        message: "Hello from Express!",
-        project: "Kathmandu Hiking Route Finder"
-    });
-});
+const PORT = 3000;
 
-app.listen(3000, () => {
-    console.log("Server running at http://localhost:3000");
+app.listen(PORT, () => {
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
