@@ -9,15 +9,15 @@ https://ipshu-codes.github.io/hiking-routes/
 
 # Homepage
 
-![Homepage](assets/screenshots/homepage.png)
+![Homepage](assets/homepage.png)
 
 # MAP
 
-![MAP](assets/screenshots/result1.png)
+![MAP](assets/result1.png)
 
 # Route Summary
 
-![Route Summary](assets/screenshots/result2.png)
+![Route Summary](assets/result2.png)
 
 
 ## Features
