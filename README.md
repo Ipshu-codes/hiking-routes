@@ -5,6 +5,18 @@ A web-based hiking route finder for popular hiking destinations in Kathmandu Val
 # Demo
 https://ipshu-codes.github.io/hiking-routes/ 
 
+### Homepage
+
+![Homepage](assets/screenshots/homepage.png)
+
+### Route Summary
+
+![Route Summary](assets/screenshots/result.png)
+
+### Interactive Map
+
+![Map](assets/screenshots/map.png)
+
 ## Features
 
 - Find the shortest hiking route between locations
