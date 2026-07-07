@@ -320,17 +320,16 @@ async function findRoute() {
     } else {
         routeColor = "red";
     }
-
-    // Draw colored route
+    
     routeLine = L.polyline(routeCoords, {
         color: routeColor,
         weight: 5
     }).addTo(map);
 
-    // Zoom to fit route
+    
     map.fitBounds(routeLine.getBounds());
 
-    // Show destination information
+    
     if (trailInfo[end]) {
     
        document.getElementById("result").innerHTML +=
