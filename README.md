@@ -1,30 +1,37 @@
-# Kathmandu Hiking Route Finder
+# 🏔 Kathmandu Hiking Route Finder
 
-A web-based hiking route finder for popular hiking destinations in Kathmandu Valley. The application uses Dijkstra's Algorithm to calculate the shortest route between hiking locations and visualizes destinations on an interactive Leaflet map.
+A web-based hiking route planner for popular hiking destinations in Kathmandu Valley. The application uses **Dijkstra's Algorithm** to calculate the shortest hiking route and visualizes trails on an interactive **Leaflet** map.
+
+Users can estimate hiking distance, time, and difficulty while exploring hiking destinations around Kathmandu.
 
 # Demo
 https://ipshu-codes.github.io/hiking-routes/ 
 
-### Homepage
+# Homepage
 
-![Homepage](assets/screenshots/homepage.png)
+![Homepage](assets/homepage.png)
 
-### Route Summary
+# MAP
 
-![Route Summary](assets/screenshots/result.png)
+![MAP](assets/result1.png)
 
-### Interactive Map
+# Route Summary
 
-![Map](assets/screenshots/map.png)
+![Route Summary](assets/result2.png)
+
 
 ## Features
 
-- Find the shortest hiking route between locations
-- Interactive map powered by Leaflet and OpenStreetMap
-- Location markers for hiking destinations
-- Distance calculation between connected routes
-- Simple and user-friendly interface
-
+- Find the shortest hiking route using Dijkstra's Algorithm
+- Interactive Leaflet map with OpenStreetMap
+- Start and destination markers
+- Total hiking distance
+- Estimated hiking time
+- Route difficulty (Easy, Moderate, Hard)
+- Route color changes according to difficulty
+- Destination information
+- Mobile responsive design
+- Reset route functionality
 ## Hiking Locations
 
 - Sundarijal
@@ -42,16 +49,19 @@ https://ipshu-codes.github.io/hiking-routes/
 
 ## Technologies Used
 
-- HTML
-- CSS
-- JavaScript
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
 - Leaflet.js
 - OpenStreetMap
+- Git & GitHub
 
 ## Algorithm
 
-The project uses Dijkstra's Algorithm to determine the shortest path between two selected hiking destinations.
+The application models hiking destinations as a weighted graph, where each location is a node and each hiking trail is an edge with an associated distance.
 
+It uses **Dijkstra's Algorithm** to calculate the shortest available hiking route between the selected start and destination.
 ## Current Progress
 
 - Hiking route graph implementation
