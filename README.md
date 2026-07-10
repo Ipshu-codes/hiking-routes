@@ -75,7 +75,6 @@ It uses **Dijkstra's Algorithm** to calculate the shortest available hiking rout
 
 * Draw routes directly on the map
 * Add elevation profiles
-* Integrate real trail data
 * Display estimated hiking time
 * Add difficulty ratings for routes
 
