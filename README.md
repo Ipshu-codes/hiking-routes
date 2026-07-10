@@ -62,13 +62,13 @@ https://ipshu-codes.github.io/hiking-routes/
 The application models hiking destinations as a weighted graph, where each location is a node and each hiking trail is an edge with an associated distance.
 
 It uses **Dijkstra's Algorithm** to calculate the shortest available hiking route between the selected start and destination.
-## Current Progress
 
-- Hiking route graph implementation
-- Dijkstra shortest path algorithm
-- Interactive user interface
-- Leaflet map integration
-- Hiking location markers
+## Highlights
+
+- Implemented Dijkstra's shortest path algorithm
+- Interactive hiking map using Leaflet
+- Express.js backend serving trail information
+- Modular project structure
 
 
 ## Future Improvements
@@ -78,6 +78,38 @@ It uses **Dijkstra's Algorithm** to calculate the shortest available hiking rout
 * Integrate real trail data
 * Display estimated hiking time
 * Add difficulty ratings for routes
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Ipshu-codes/hiking-routes.git
+```
+
+Navigate to the project:
+
+```bash
+cd hiking-routes
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the server:
+
+```bash
+node server.js
+```
+
+Open your browser:
+
+```
+http://localhost:3000
+```
 
 ## Author
 

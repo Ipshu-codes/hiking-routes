@@ -14,14 +14,8 @@ app.use((req, res, next) => {
 
 app.get("/api/trails", (req, res) => {
     console.log("✅ /api/trails route reached");
-    res.json([
-        "Sundarijal",
-        "Mulkharka",
-        "Manichud",
-        "Chisapani"
-    ]);
+    res.json(trailInfo);
 });
-
 
 app.use(express.static(__dirname));
 
