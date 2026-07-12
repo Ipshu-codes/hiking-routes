@@ -1,7 +1,7 @@
 let trailInfo = {};
 
 async function loadTrailInfo() {
-    const response = await fetch("/api/trails");
+    const response = await fetch("./data/trails.json");
     trailInfo = await response.json();
 }
 
