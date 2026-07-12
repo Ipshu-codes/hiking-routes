@@ -1,24 +1,24 @@
-const trailInfo = require("./data/trails");
 const express = require("express");
 const path = require("path");
+const trailInfo = require("./data/trails.json");
 
 const app = express();
 const PORT = 3000;
 
+// Serve static files
+app.use(express.static(__dirname));
 
-app.use((req, res, next) => {
-    console.log("➡️", req.method, req.url);
-    next();
-});
-
-
+// API route
 app.get("/api/trails", (req, res) => {
-    console.log("✅ /api/trails route reached");
     res.json(trailInfo);
 });
 
-app.use(express.static(__dirname));
+// Homepage
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
 
+// Start server
 app.listen(PORT, () => {
-    console.log(` Server running at http://localhost:${PORT}`);
+    console.log(`Server running at http://localhost:${PORT}`);
 });
